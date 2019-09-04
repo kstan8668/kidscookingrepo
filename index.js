@@ -60,8 +60,8 @@ app.set('view engine', 'ejs')
 app.use(cookieParser());
 app.use(session({ genid: function(req) {
   return genuuid() // use UUIDs for session IDs
-}, secret: 'keyboard cat', cookie: { maxAge: 60000 } }))
-
+},  secret: 'keyboard cat', cookie: { maxAge: 60000 } }))
+ 
 app.use(flash(app));
 app.get('/', (req, res) => res.redirect('/home'))
 
