@@ -1,0 +1,29 @@
+<!-- Navbar -->
+
+<nav class="orange lighten-2">
+    <div class="nav-wrapper">
+        <% include ./smoke %>
+        <a href="/" class="brand-logo">Kids Cooking Paradise</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+
+            <% if (user != undefined && user != '') { %>
+            <li><a href="/recipelist">Recipes</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <% } else { %>
+            <li><a href="/signup">Sign Up</a></li>
+            <li><a href="/home">Login</a></li>
+            <% } %>
+        </ul>
+    </div>
+</nav>
+<!-- Mobile sidebar -->
+<ul class="sidenav" id="mobile-demo">
+    <% if (user != undefined && user != '') { %>
+    <li><a href="/recipelist">Recipes</a></li>
+    <li><a href="/logout">Logout</a></li>
+    <% } else { %>
+    <li><a href="/signup">Sign Up</a></li>
+    <li><a href="/home">Login</a></li>
+    <% } %>
+</ul>

@@ -1,0 +1,211 @@
+
+<% include ./header %> 
+    <body >
+        <!-- Navbar -->
+        <nav class="orange lighten-2">
+            <div class="nav-wrapper">
+                <% include ./smoke %>
+                <a href="/" class="brand-logo">Kids Cooking Paradise</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <% if (user != undefined && user != '') { %>
+                        <li> Welcome <%-user%>! </li>
+                        <li><a href="/addrecipe">Add Recipe</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    <% } else { %>
+                        <li><a href="/signup">Sign Up</a></li>
+                        <li><a href="/home">Login</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </nav>
+        <!-- Mobile sidebar -->
+        <ul class="sidenav" id="mobile-demo">
+            <% if (user != undefined && user != '') { %>
+        
+                <li><a href="/addrecipe">Add Recipe</a></li>
+                <li><a href="/logout">Logout</a></li>
+            <% } else { %>
+                <li><a href="/signup">Sign Up</a></li>
+                <li><a href="/home">Login</a></li>
+            <% } %>
+        </ul>
+        
+        
+        <!-- Main Content -->
+        <main class="main">
+            <div class="container">
+                <div class="row">
+                    
+                    <header class="header-text center-align orange-text text-lighten-4">
+        <h1>Recipe List</h1>
+        <p class="lrg-paragraph-txt"><strong>Search, sort, filter and add recipes</strong></p>
+    </header>
+
+
+    <div class="container col s12 m10 offset-m1 yellow lighten-5 content-container" id="recipe-search">
+            <div class="row mb-10">
+                
+                <form>
+                    <div class="col s7 m4">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix orange-text text-lighten-1">search</i>
+                            <input id="recipe_search" name="recipe_search" type="text" autocomplete="off">
+                            <label for="recipe_search">Search</label>
+                        </div>
+                    </div>
+                    <div class="col s5 m2">
+                        <button class="btn waves-effect waves-light submit-btn mt-20" type="submit" id="recipe-search-btn">Search</button>
+                    </div>
+                </form>
+                
+                <form>
+                       <div class="col s7 m4">
+                            <div class="input-field col s12" id="cuisine-select">
+                                <select id="cuisine-filter" name="cuisine_select">
+                                    <option value="" disabled selected>Cuisine</option>
+                                    <% for ( cuisine in cuisines) { %>
+                                    <option value="{{ cuisine.cuisine_name }}">{{ cuisine.cuisine_name }}</option>
+                                    <% } %>
+                                </select>
+                                <label for="cuisine-filter">Filter by Cuisine</label>
+                            </div>
+                        </div>
+                        <div class="col s5 m2">
+                            <button class="btn waves-effect waves-light submit-btn mt-20" type="submit" id="cusine-filter-btn">Filter</button>
+                        </div>
+                    </form>
+                
+            </div>
+            <div class="row mb-10">
+                <div class="col s12 m6 center-align">
+                    <form>
+                        <p class="orange-text text-lighten-4">Sort All Recipes By: </p>
+                        <button class="btn waves-effect waves-light btn-small" type="submit" name="sort" value="votes">Votes</button>
+                        <button class="btn waves-effect waves-light btn-small" type="submit" name="sort" value="asc">A-Z</button>
+                        <button class="btn waves-effect waves-light btn-small" type="submit" name="sort" value="dsc">Z-A</button>
+                    </form>
+                </div>
+                
+                <div class="col s12 m6 grey-text text-lighten-2 center-align s-mt-20">
+                        <a href="/recipelist" class="waves-effect waves-light btn-small ml-20">Reset</a>
+                        <p class="mt-30"><strong>
+                        <% if (recipes.length == 0) { %>
+                            <p>0 Results found...</p>
+                       <% } else if (recipes.length == 1) { %>
+                            1 Result found...
+                        <% } else { %>
+                             Results found..
+                        <% } %>
+                        </strong></p>
+                    </div>
+            </div>
+        </div>
+        
+        <div class="container col s12 m10 offset-m1 grey-text text-lighten-2 content-container mt-20">
+                <div class="row">
+                
+                        <% if (recipes.length == 0) { %>
+                            <p class="grey-text text-lighten-4 center-align"><strong>There are no recipes matching this criteria</strong></p>
+                        <% } else { %>
+                            <% for (var i=0; i< recipes.length; i++) { %>
+                            <div class="col s12 m6 l6 xl4 recipe-card">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src='<%= recipes[i].image_url %>'' alt="<%= recipes[i].recipe_name%>">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="brown-text"><%= recipes[i].recipe_name%></h6>
+                                        <p class="brown-text"><%= recipes[i].cuisine%></p>
+                                        <p class="p-10"><i class="small material-icons grey-text">thumb_up</i><label class="brown-text text-lighten-2"><strong> <%  if (recipes[i].liked_by != undefined ) { if (recipes[i].liked_by.length != null) { %> <%= recipes[i].liked_by.length %> <%} }%></strong></label></p>
+                                        <p class="brown-text author-text">By: <span class="brown-text text-lighten-3"><%= recipes[i].author %></span></p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="/recipe/<%- recipes[i]._id %>" class="waves-effect waves-light btn-small m-4">View</a>
+                                        <% if (user == recipes[i].author ) { %>
+                                            <a href="/edit_recipe/<%-recipes[i]._id %>" class="waves-effect waves-light btn-small blue lighten-2 m-4"><i class="small material-icons">edit</i></a>
+                                            <a href="#warning" data-target="warning-<%-recipes[i]._id %>" class="waves-effect waves-light btn-small red lighten-2 m-4 modal-trigger"><i class="small material-icons">delete</i></a>
+                                            <div id="warning-<%-recipes[i]._id %>" class="modal">
+                                                <div class="modal-content">
+                                                    <h4>Delete Recipe</h4>
+                                                    <p>Are you sure you want to delete this recipe?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="#!" class="modal-close waves-effect waves-light btn-small">Back</a>
+                                                    <form action='/delete_recipe/<%-recipes[i]._id %>' method='post'>
+                                                        <input class=hidden name='parameter' value='blaah'>
+                                                        <button type='submit' name='delete' value='Delete' class="waves-effect waves-light btn-small red lighten-2">Yes, Delete</button>
+                                                     </form>
+                                                    
+                                                </div>
+                                            </div>
+                                        <% } %>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                        <% } %>
+                    </div>
+            
+            <% if (recipes) { %>
+                <div class="center-align">
+                    <ul class="pagination">
+                        <li id="prev-page" class="disabled"><a href="javascript:void(0)" aria-label="Previous"><i class="material-icons">chevron_left</i></a></li>
+                    </ul>
+                </div>
+            <% } %>
+            
+        </div>
+        
+    
+
+        <% if (user != undefined && user != '') { %>
+        <a href="/addrecipe" class="btn-floating btn-large waves-effect waves-light z-depth-4 add-recipe-btn"><i class="material-icons">add</i></a>
+    <% } %>
+    </div></div>
+
+</main>
+
+    
+<footer class="page-footer mt-40 orange lighten-2">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h6 class="white-text">Kids Cooking Paradise</h6>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h6 class="white-text">Links</h6>
+                <ul>
+                        <% if (user != undefined && user != '') { %>
+                         <li><a class="grey-text text-lighten-3" href="/logout">Logout</a></li>
+                    <% } else { %>
+                        <li><a class="grey-text text-lighten-3" href="/signup">Sign Up</a></li>
+                        <li><a class="grey-text text-lighten-3" href="/home">Login</a></li>
+                 <%} %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2019 Kids Cooking Paradise
+            <a class="grey-text text-lighten-4 right" href="/home" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    $( document ).ready(function() {
+        $('.modal').modal();
+        $('#modal1').on('click', function() {
+        });
+      });
+     </script>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- Materialize - Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

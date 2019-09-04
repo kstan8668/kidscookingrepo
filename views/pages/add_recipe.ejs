@@ -1,0 +1,122 @@
+<% include ./header %>
+
+<body>
+    <% include ./navbar %>
+    <!-- Main Content -->
+    <main class="main">
+        <header class="header-text center-align orange-text text-lighten-2">
+            <h1>Add Recipe</h1>
+        </header>
+        <div class="container col s12 m10 offset-m1 grey lighten-5 content-container" id="login-form">
+            <div class="row">
+                <form action="/insertrecipe" method="POST">
+                    <!-- Recipe name section -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="recipe_name" name="recipe_name" type="text" class="validate" autocomplete="off"
+                                maxlength="24" autofocus required>
+                            <span class="helper-text">Recipe Name</span>
+                        </div>
+                    </div>
+
+                    <!-- Recipe cuisine and image URL section -->
+                    <div class="row">
+                        <div class="input-field col s10 m3">
+                            <select id="cuisine" name="cuisine" >
+                                <option value="#" disabled selected>Select Cuisine</option>
+                                <% for(var i=0; i < cuisines.length; i++) { %>
+                                <option value="<%- cuisines[i] %>"><%- cuisines[i] %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="image_url" type="text" name="image_url" autocomplete="off">
+                            <span class="helper-text">Image URL: Enter full valid URL to image, or leave blank if no
+                                image available</span>
+                        </div>
+                    </div>
+
+                
+
+                    <!-- Ingredients section -->
+                    <div class="row">
+                        <div class="ingredients">
+                            <h5 class="mb-20 center-align orange-text text-lighten-2"><strong>Ingredients</strong></h5>
+                            <div class="ingredient">
+                                
+                                <div class="input-field col s4">
+                                <select class="ingredient-list" name="ingredient-name-1" >
+                                    <option value="" disabled selected>Select Ingredient</option>
+                                    <% for(var z=0; z < ingredients.length; z++) { %>
+                                    <option value="<%= ingredients[z]%>"><%- ingredients[z] %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+                                <div class="input-field col s4">
+                                    <input id="quantity" name="ingredient-qty-1" type="text" class="validate"
+                                        autocomplete="off" required>
+                                    <span class="helper-text">Quantity</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12" id="ingredients-buttons">
+                                <div class="col s12 m6 l4">
+                                    <a class="waves-effect waves-light btn-floating btn-small add-ingredient-btn"
+                                        name="add-ing-btn"><i class="material-icons left">add</i></a>
+                                    <label for="add-ing-btn">Add Next Ingredient</label>
+                                </div>
+                                <div class="col s12 m6 l4">
+                                    <a class="waves-effect waves-light btn-floating btn-small remove-ingredient-btn"
+                                        name="remove-ing-btn"><i class="material-icons left">remove</i></a>
+                                    <label for="remove-ing-btn">Remove Last Ingredient</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="mb-40">
+
+                    <!-- Method section -->
+                    <div class="row">
+                        <div class="method">
+                            <h5 class="mb-0 center-align orange-text text-lighten-2"><strong>Method</strong></h5>
+                            <div class="input-field col s12 mt-0">
+                                <ol id="steps-list" class="mt-10">
+                                    <li class="step">
+                                        <input name="step-1" type="text" class="validate" autocomplete="off" required>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12" id="method-buttons">
+                                <div class="col s12 m6 l4">
+                                    <a class="waves-effect waves-light btn-floating btn-small add-step-btn"
+                                        name="add-step-btn"><i class="material-icons left">add</i></a>
+                                    <label for="add-step-btn">Add Next Step</label>
+                                </div>
+                                <div class="col s12 m6 l4">
+                                    <a class="waves-effect waves-light btn-floating btn-small remove-step-btn"
+                                        name="remove-step-btn"><i class="material-icons left">remove</i></a>
+                                    <label for="remove-step-btn">Remove Last Step</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Submit Recipe-->
+                    <button class="btn waves-effect waves-light submit-btn" type="submit" name="action" formaction="/insertrecipe" method="POST">Add
+                        Recipe</button>
+                    <a href="/recipelist" class="waves-effect waves-light btn red darken-3 submit-btn mt-20">Cancel</a>
+                </form>
+
+            </div>
+        </div>
+
+    </main>
+    <% include ../partials/footerdiv %>
+</body>
+</html>
+

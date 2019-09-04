@@ -1,0 +1,113 @@
+<% include ./header %> 
+<body>
+ <% include ./navbar %>
+ <main class="main">
+    <header class="header-text center-align orange-text text-lighten-2">
+        <h1>Edit Recipe</h1>
+    </header>
+   
+    <div class="container col s12 m10 offset-m1 grey lighten-5 content-container" id="login-form">
+        <div class="row">
+            <form action="/savechanges/<%=recipes._id%>" method="POST">
+                <!-- Recipe name section -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        
+                        <input id="recipe_name" name="recipe_name" type="text" class="validate" autocomplete="off"  maxlength="24" value="<%-recipes.recipe_name%>" autofocus required>
+                        <span class="helper-text">Enter Recipe Name</span>
+                    </div>
+                </div>
+                
+                <!-- Recipe cuisine and image URL section -->
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <select id="cuisine" name="cuisine" >
+                            <option value="" disabled>Select Cuisine</option>
+                            <% for (var i=0; i < cuisines; i++) {%>
+                                <% if ( cuisines[i] == recipes.cuisine) {%>
+                                    <option value="<%=cuisines[i] %>" selected><%=cuisines[i] %></option>
+                                <%} else {%>
+                                    <option value="<%=cuisines[i] %>"><%=cuisines[i] %></option>
+                                <% } %>
+                            <% } %>
+                        </select>
+                        <label for="cuisine">Cuisine</label>
+                    </div>
+                    <div class="input-field col s12 ">
+                        <input id="image_url" type="text" name="image_url" autocomplete="off" value="<%- recipes.image_url%>">
+                        <span class="helper-text">Enter full valid URL to image, or leave blank if no image available</span>
+                    </div>
+                </div>
+                
+                <hr class="mb-40">
+                
+                <!-- Ingredients section -->
+                <div class="row">
+                    <div class="ingredients">
+                        <h5 class="mb-20 center-align orange-text text-lighten-2"><strong>Ingredients</strong></h5>
+                        <ol>
+                        <% if (ingredients != undefined) { for ( var i=0; i < ingredients.length|0; i++) { %>
+                      
+                        <li class="step">
+                            <input name="step-<%-i %>" type="text" class="validate" value="<%-ingredients[i]%>" autocomplete="off" >
+                        </li>
+                        <% } }%>
+                    </ol>
+                    </div>
+                    <div class="row">
+                        <div class="col s12" id="ingredients-buttons">
+                            <div class="col s12 m6 l4">
+                                <a class="waves-effect waves-light btn-floating btn-small add-ingredient-btn" name="add-ing-btn"><i class="material-icons left">add</i></a>
+                                <label for="add-ing-btn">Add Next Ingredient</label>
+                            </div>
+                            <div class="col s12 m6 l4">
+                                <a class="waves-effect waves-light btn-floating btn-small remove-ingredient-btn" name="remove-ing-btn"><i class="material-icons left">remove</i></a>
+                                <label for="remove-ing-btn">Remove Last Ingredient</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <hr class="mb-40">
+                
+                <!-- Method section -->
+                <div class="row">
+                    <div class="method">
+                        <h5 class="mb-0 center-align orange-text text-lighten-2"><strong>Method</strong></h5>
+                        <div class="input-field col s12 mt-0">
+                            <ol id="steps-list" class="mt-10">
+                                
+                                <% if (recipes.method != undefined) { for( var z=0; z < recipes.method.length ; z++) { %>
+                                <li class="step">
+                                    <input name="step-<%-z %>" type="text" class="validate" value="<%-recipes.method[z] %>" autocomplete="off" required>
+                                </li>
+                                <% } }%>
+                                
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col s12" id="method-buttons">
+                            <div class="col s12 m6 l4">
+                                <a class="waves-effect waves-light btn-floating btn-small add-step-btn" name="add-step-btn"><i class="material-icons left">add</i></a>
+                                <label for="add-step-btn">Add Next Step</label>
+                            </div>
+                            <div class="col s12 m6 l4">
+                                <a class="waves-effect waves-light btn-floating btn-small remove-step-btn" name="remove-step-btn"><i class="material-icons left">remove</i></a>
+                                <label for="remove-step-btn">Remove Last Step</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--Submit Recipe-->
+                <button class="btn waves-effect waves-light submit-btn" type="submit" name="action" >Save Changes</button>
+                <a href="/recipelist" class="waves-effect waves-light btn red darken-3 submit-btn mt-20">Cancel</a>
+            </form>
+        </div>
+    </div>
+    </main>
+    <% include ../partials/footerdiv %>
+</body>
+</html>

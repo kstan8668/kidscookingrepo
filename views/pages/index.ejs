@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kids Cooking Paradise</title>
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize - Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="stylesheets/main.css" >
+</head>
+<body class='bodymain'>
+    <!-- Navbar -->
+ 
+    <nav class="orange lighten-2">
+        <div class="nav-wrapper">
+                <% include ./smoke %>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+      
+                <% if (user != undefined && user != '') { %>
+                    <li><a href="/recipelist">Recipes</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                <% } else { %>
+                    <li><a href="/signup">Sign Up</a></li>
+                    <li><a href="/home">Login</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+    <!-- Mobile sidebar -->
+    <ul class="sidenav" id="mobile-demo">
+        <% if (user != undefined && user != '') { %>
+            <li><a href="/recipelist">Recipes</a></li>
+            <li><a href="/logout">Logout</a></li>
+        <% } else { %>
+            <li><a href="/signup">Sign Up</a></li>
+            <li><a href="/home">Login</a></li>
+        <% } %>
+    </ul>
+    
+    
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="row">
+                
+              <header class="header-text center-align orange-text text-lighten-2">
+                <h1 class="orange-text text-darken-1" style="text-shadow: 2px 2px 8px #534323;">Welcome</h1>
+                <p class="lrg-paragraph-txt grey-text text-darken-2" ><strong>Click the Recipes button above to browse recipes or</strong> </p>
+                    <p class="lrg-paragraph-txt grey-text text-darken-2"  ><strong> log in below to access full site features</strong></p>
+            </header>
+            <div class="container col s10 m6 offset-s1 offset-m3 grey lighten-2 content-container" id="login-form">
+                <div class="row">
+                    <h4 class="center-align orange-text text-lighten-2">Log In</h4>
+    
+                    
+                    <form action="/" method="POST">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix orange-text text-lighten-2">account_circle</i>
+                            <input id="username" name="username" type="text" class="validate" maxlength="16" pattern="^[a-zA-Z0-9]*$" autofocus required>
+                            <label for="username">Username</label>
+                            <span class="helper-text" data-error="Username should be 6-16 alphanumeric characters with no spaces"></span>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix orange-text text-darken-1">lock_open</i>
+                            <input id="password" name="password" type="password" class="validate" pattern='^[a-zA-Z0-9!@#$&()\\-`.+,/\"]*$' required>
+                            <label for="password">Password</label>
+                            <span class="helper-text" data-error="Password should be 8-16 long, made up of alphanumeric and special characters"></span>
+                        </div>
+                        <button class="btn waves-effect waves-light submit-btn center-align" type="submit" name="action" formaction="/login">Submit</button>
+                        <% if (messages) { %>
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                            <%= messages %>.
+                          </div>
+                          <% } %>
+
+                          <% if (smessages) { %>
+                            <div class="success">
+                                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                <%= smessages %>.
+                              </div>
+                              <% } %>
+                    </form>
+                    <p class="center-align orange-text text-lighten-2 sml-paragraph-txt mt-20">Not registered already? Sign up <a href="/signup">Here</a></p>
+                </div>
+            </div>
+                
+            </div>
+        </div>
+    </main>
+
+    
+    <footer class="page-footer mt-40 orange lighten-2">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h6 class="brown-text">Kids Cooking Paradise</h6>
+                    
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h6 class="white-text">Links</h6>
+                    <ul>
+                        <% if (user) { %>
+                            <li><a class="grey-text text-darken-2" href="/recipelist">Recipes</a></li>
+                            <li><a class="grey-text text-darken-2" href="/logout">Logout</a></li>
+                        <% } else { %>
+                            <li><a class="grey-text text-darken-2" href="/signup">Sign Up</a></li>
+                            <li><a class="grey-text text-darken-2" href="/">Login</a></li>
+                            <li><a class="grey-text text-darken-2" href="/recipelist">Recipes</a></li>
+                        <%} %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2019 Kids Cooking Paradise
+                <a class="grey-text text-lighten-2 right" href="/" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!-- Materialize - Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
