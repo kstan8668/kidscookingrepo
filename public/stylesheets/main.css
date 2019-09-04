@@ -1,0 +1,411 @@
+.jumbotron {
+  background: #532F8C;
+  color: white;
+  padding-bottom: 80px; }
+  .jumbotron .btn-primary {
+    background: #845ac7;
+    border-color: #845ac7; }
+    .jumbotron .btn-primary:hover {
+      background: #7646c1; }
+  .jumbotron p {
+    color: #d9ccee;
+    max-width: 75%;
+    margin: 1em auto 2em; }
+  .navbar + .jumbotron {
+    margin-top: -20px; }
+  .jumbotron .lang-logo {
+    display: block;
+    background: #B01302;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border: 2px solid white; }
+    .jumbotron .lang-logo img {
+      max-width: 100%; }
+
+      nav {
+        position: fixed;
+        z-index: 9000;
+    }
+    
+    nav .brand-logo {
+        font-size: 1.4rem;
+    }
+    
+    .sidenav {
+        z-index: 9999;
+    }
+    
+    h1 {
+        font-size: 3.4rem;
+    }
+    
+    .btn, .btn-large, .btn-small
+    {
+        background-color: #fb8c00  ;
+    }
+    .bodymain {
+        background-image: url('/img/cooking.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    select{
+        display: inline;
+    }
+    .main {
+        display: block;
+        box-sizing: border-box;
+        padding-top: 64px;
+        min-height: calc(100vh - 253px);
+    }
+    
+    #login-form {
+        padding: 30px;
+    }
+    
+    .flashes {
+        width: 90%;
+        margin: 20px auto;
+        padding: 2px;
+        text-align: center;
+        font-size: 13px;
+        border-radius: 4px;
+    }
+    
+    .error {
+        background-color: #ffdbdb;
+        border: 1px solid #c14747;
+    }
+    
+    .success {
+        background-color: #dbffde;
+        border: 1px solid #21962a;
+        -webkit-animation: fadeOut 2s forwards;
+        animation: fadeOut 2s forwards;
+        -webkit-animation-delay: 3s;
+        animation-delay: 3s;
+        background: green;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .content-container {
+        border-radius: 8px;
+    }
+    
+    .submit-btn {
+        display: block;
+        margin: 0 auto;
+    }
+    
+    a.submit-btn {
+        width: 100px;
+    }
+    
+    #recipe-search {
+        padding: 14px;
+    }
+    
+    .author-text {
+        font-size: 13px;
+    }
+    
+    div.card-image {
+        height: 240px;
+        width: 100%;
+    }
+    
+    .card .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+
+    .fab {
+        font-size: 1.6rem;
+    }
+    
+    .add-ingredient-btn,
+    .remove-ingredient-btn,
+    .add-step-btn,
+    .remove-step-btn {
+        margin: 4px;
+    }
+    
+    hr {
+        margin-bottom: 36px;
+    }
+    
+    #cuisine-select {
+        margin-left: 20px;
+    }
+    
+    a.btn-floating.btn-large.add-recipe-btn {
+        position: fixed;
+        right: 5%;
+        top: 85%;
+    }
+    
+    #like-recipe-btn {
+        cursor: pointer;
+    }
+    
+    .like-active {
+        color: #ebb34d !important;
+    }
+    
+    ol>li {
+        margin-bottom: 10px;
+    }
+    
+    .pagination li.active {
+        background-color: #ebb34d !important;
+    }
+    
+    .ingredients-list li {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 6px;
+        margin-bottom: 8px;
+    }
+    
+    /* Utility classes*/
+    .lrg-paragraph-txt {
+        font-size: 1.2rem;
+    }
+    
+    .sml-paragraph-txt {
+        font-size: 0.9rem;
+    }
+    
+    .m-4 {
+        margin: 4px;
+    }
+    
+    .mt-0 {
+        margin-top: 0;
+    }
+    
+    .mt-10 {
+        margin-top: 10px;
+    }
+    
+    .mt-20 {
+        margin-top: 20px;
+    }
+    
+    .mt-30 {
+        margin-top: 30px;
+    }
+    
+    .mt-40 {
+        margin-top: 40px;
+    }
+    
+    .mb-0 {
+        margin-bottom: 0;
+    }
+    
+    .mb-10 {
+        margin-bottom: 10px;
+    }
+    
+    .mb-20 {
+        margin-bottom: 20px;
+    }
+    
+    .mb-40 {
+        margin-bottom: 40px;
+    }
+    
+    .ml-10 {
+        margin-left: 10px;
+    }
+    
+    .ml-20 {
+        margin-left: 20px;
+    }
+    
+    .ml-40 {
+        margin-left: 40px;
+    }
+    
+    .pl-10 {
+        padding-left: 10px;
+    }
+    
+    .p-10 {
+        padding: 10px;
+    }
+    
+    .px-10 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .height-40 {
+        height: 40px;
+    }
+    
+    .inline-block {
+        display: inline-block;
+    }
+    
+    .text-bold {
+        font-weight: bold;
+    }
+    
+    /* Media Queries */
+    @media screen and (min-width: 993px) {
+        
+        nav .brand-logo {
+            margin-left: 60px;
+            font-size: 2rem;
+        }
+        
+    }
+    
+    @media screen and (max-width: 600px) {
+        
+        .add-recipe-btn {
+            margin-top: 32px;
+        }
+        
+        .s-mt-20 {
+            margin-top: 20px;
+        }
+    }
+    
+    @media screen and (min-width: 601px) and (max-width: 757px) {
+        
+        .btn, .btn-large, .btn-small, .btn-flat {
+            padding: 0 6px;
+        }
+        
+    }
+    
+
+/* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    -webkit-animation: fadeOut 2s forwards;
+    animation: fadeOut 2s forwards;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+    background: red;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  @-webkit-keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+  /* The close button */
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* When moving the mouse over the close button */
+  .closebtn:hover {
+    color: black;
+  }
+
+  * Smoke container */
+
+#smoke {
+	position: absolute;
+	z-index: 3;
+	width: 1px; height: 100px;
+	left: 80%; bottom: 1px;
+}
+
+/* smoke balls */
+
+#smoke span { 
+  display: block;
+	position: absolute;
+	bottom: 13px; left: 50%; margin-left:-20px;
+	height: 0px; width: 0px;
+	border: 10px solid #ffffff;
+	border-radius: 20px;
+	left: 160px; opacity: 0;
+	transform: scale(0.2);
+}
+
+#smoke2 {
+	position: absolute;
+	z-index: 3;
+	width: 1px; height: 100px;
+	left: 0%; bottom: 1px;
+}
+
+/* smoke balls */
+
+#smoke2 span { 
+  display: block;
+	position: inherit;
+	bottom: 13px; left: 50%; margin-left:-20px;
+	height: 0px; width: 0px;
+	border: 10px solid #ffffff;
+	border-radius: 25px;
+	left: 180px; opacity: 0;
+	transform: scale(0.3);
+}
+
+/* Smoke animation */
+
+@keyframes smokeL {
+	0%   { transform: scale(0.2) translate(0, 0) }
+	10%  { opacity: 1; transform: scale(0.2) translate(0, -5px) }
+	100% { opacity: 0; transform: scale(1) translate(-20px, -130px) }
+}
+
+@keyframes smokeR {
+	0%   { transform: scale(0.2) translate(0, 0) }
+	10%  { opacity: 1; transform: scale(0.2) translate(0, -5px) }
+	100% { opacity: 0; transform: scale(1) translate(20px, -130px) }
+}
+
+#smoke .s0 { animation: smokeL 10s 0s infinite }
+#smoke .s1 { animation: smokeR 10s 1s infinite }
+#smoke .s2 { animation: smokeL 10s 2s infinite }
+#smoke .s3 { animation: smokeR 10s 3s infinite }
+#smoke .s4 { animation: smokeL 10s 4s infinite }
+#smoke .s5 { animation: smokeR 10s 5s infinite }
+#smoke .s6 { animation: smokeL 10s 6s infinite }
+#smoke .s7 { animation: smokeR 10s 7s infinite }
+#smoke .s8 { animation: smokeL 10s 8s infinite }
+#smoke .s9 { animation: smokeR 10s 9s infinite }
+
+
+#smoke2 .s0 { animation: smokeL 5s 0s infinite }
+#smoke2 .s1 { animation: smokeR 5s 1s infinite }
+#smoke2 .s2 { animation: smokeL 5s 2s infinite }
+#smoke2 .s3 { animation: smokeR 5s 3s infinite }
+#smoke2 .s4 { animation: smokeL 5s 4s infinite }
+#smoke2 .s5 { animation: smokeR 5s 5s infinite }
+#smoke2 .s6 { animation: smokeL 5s 6s infinite }
+#smoke2 .s7 { animation: smokeR 5s 7s infinite }
+#smoke2 .s8 { animation: smokeL 5s 8s infinite }
+#smoke2 .s9 { animation: smokeR 5s 9s infinite }
