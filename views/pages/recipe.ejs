@@ -39,8 +39,8 @@
             <div class="col s12 m5 l4">
                 <h5 class="ml-20">Ingredients</h5>
                 <ol class="ml-20 striped ingredients-list">
-                        <%if (recipes.ingredients != undefined && recipes.liked_by.length != null) {%>
-                    <% for ( var j=0; j < recipes.ingredients.length; j++) { %>
+                        <%if (ingredients != undefined) {%>
+                    <% for ( var j=0; j < ingredients.length; j++) { %>
                         <li> <%=ingredients[j] %></li>
                     <%} }%>
                 </ol>

@@ -383,9 +383,11 @@ app.post('/delete_recipe/:id', function (req, res) {
 app.post('/insertrecipe', function (req, res) {
  const rname = req.body.recipe_name;
  const imageurl = req.body.image_url;
- const cusine = req.body.cuisine;
+ const cuisine = req.body.cuisine;
+ const ingredients = req.body.ingredients;
+ const method = req.body.method;
 
-  var mydocument = { recipe_name: rname,image_url: imageurl,author:username,created_on:Date.now() };
+  var mydocument = { recipe_name: rname,cuisines:cuisine,ingredients:ingredients,method:method,image_url: imageurl,author:username,created_on:Date.now() };
   //var newvalues = { $set: {recipe_name: , address: "Canyon 123" } };
 
   (async () => {
