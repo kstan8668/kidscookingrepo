@@ -12,8 +12,8 @@
                     <p class="grey-text author-text">By: <span class="grey-text text-darken-3"><%- recipes.author %></span></p>
                     <div class="mt-20 mb-10">
                         <div class="inline-block p-10">
-                            <% if ( user) { %>
-                                <% if (user in recipes.liked_by) { %>
+                                <% if (user != undefined && user != '') { %>
+                                 <% if (user = recipes.liked_by) { %>
                                     <i class="small material-icons grey-text like-active" data-user="<%user%>" data-recipe="<%recipes._id%>" id="like-recipe-btn">thumb_up</i>
                             <% } else { %>
                                     <i class="small material-icons grey-text" data-user="<%user%>" data-recipe="<%recipes._id%>" id="like-recipe-btn">thumb_up</i>
@@ -48,9 +48,10 @@
             <div class="col s12 m7 l8">
                 <h5 class="ml-20">Instructions</h5>
                 <ol>
-                    <% for(var z=0; z< recipes.method.length; z++) {%>
+                    <% if ( recipes.method != undefined )  {%>
+                    <% for(var z=0; z < recipes.method.length; z++) {%>
                         <li><%- recipes.method[z] %></li>
-                    <% } %>
+                    <% } } %>
                 </ol>
             </div>
         </div>
