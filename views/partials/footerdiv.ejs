@@ -1,39 +1,93 @@
 <footer class="page-footer mt-40 orange lighten-2">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h6 class="white-text">Kids Cooking Paradise</h6>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h6 class="white-text">Links</h6>
+                <ul>
+                    <% if (user) { %>
+                    <li><a class="grey-text text-lighten-3" href="/logout">Logout</a></li>
+                    <% } else { %>
+                    <li><a class="grey-text text-lighten-3" href="/signup">Sign Up</a></li>
+                    <li><a class="grey-text text-lighten-3" href="/home">Login</a></li>
+                    <%} %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
         <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h6 class="white-text">Kids Cooking Paradise</h6>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h6 class="white-text">Links</h6>
-                    <ul>
-                        <% if (user) { %>
-                             <li><a class="grey-text text-lighten-3" href="/logout">Logout</a></li>
-                        <% } else { %>
-                            <li><a class="grey-text text-lighten-3" href="/signup">Sign Up</a></li>
-                            <li><a class="grey-text text-lighten-3" href="/home">Login</a></li>
-                     <%} %>
-                    </ul>
-                </div>
-            </div>
+            © 2019 Kids Cooking Paradise
+            <a class="grey-text text-lighten-4 right" href="https://github.com/kes2401/online-cookbook"
+                target="_blank"><i class="fab fa-github"></i></a>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2019 Kids Cooking Paradise
-                <a class="grey-text text-lighten-4 right" href="https://github.com/kes2401/online-cookbook" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </footer>
-    
-    <script>
-        $( document ).ready(function() {
-            $('.modal').modal();
-            $('#modal1').on('click', function() {
-            });
-          });
-         </script>
-    
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <!-- Materialize - Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </div>
+</footer>
+
+<script>
+    $(document).ready(function () {
+        $('.modal').modal();
+        $('#modal1').on('click', function () {
+        });
+    });
+
+    var counter = 1;
+    var counter2 = 1;
+var limit = 5;
+function addInput(divName){
+     if (counter == limit)  {
+          alert("You have reached the limit of adding " + counter + " inputs");
+     }
+     else {
+
+          var name = "ingredient-name-"+(counter + 1)
+          var newdiv = document.createElement(name);
+          var vhtml = '<br><div class="ingredient" ><div class="input-field col2 s4"> <select class="ingredient-list" name="ingredient-name-'+(counter + 1)+'" > <option value="" disabled selected>Select Ingredient</option> <% for(var z=0; z < ingredients.length; z++) { %> <option value="<%= ingredients[z]%>"><%- ingredients[z] %></option> <% } %> </select> </div> <div class="input-field col2 s4"> <input id="quantity" name="ingredient-qty-'+(counter + 1)+'" type="text" class="validate" autocomplete="off" required> <span class="helper-text">Quantity</span> </div>'
+          newdiv.innerHTML = vhtml;
+        //   newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
+          document.getElementById(divName).appendChild(newdiv);
+          counter++;
+     }
+}
+
+function addMethod(divName){
+     if (counter2 == limit)  {
+          alert("You have reached the limit of adding " + counter2 + " inputs");
+     }
+     else {
+
+          var name = "step-"+(counter2 + 1)
+          var newdiv = document.createElement(name);
+          var vhtml = '<div class="input-field col2 s12 mt-0"> <ul id="steps-list" class="mt-10"><div> '+(counter2 + 1)+'. <li class="step"> <input name="step-'+(counter2 + 1)+'" type="text" class="validate" autocomplete="off" required> </li> </div> </ul> </div>';
+          newdiv.innerHTML = vhtml;
+        //   newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
+          document.getElementById(divName).appendChild(newdiv);
+          counter2++;
+     }
+}
+
+function removeInput(divName){
+     if (counter == 1)  {
+          alert("You have reached the limit of removing inputs");
+     }
+     else {
+
+        var name = "ingredient-name-"+(counter);
+        var olddiv = document.getElementsByName(name);
+        // olddiv.parentNode.removeChild(olddiv)
+       
+        //   newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
+        //   document.getElementById(divName).removeChild(olddiv);
+        //   document.removeChild(olddiv);
+          counter--;
+     }
+}
+
+</script>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- Materialize - Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

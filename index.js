@@ -383,6 +383,7 @@ app.post('/delete_recipe/:id', function (req, res) {
 app.post('/insertrecipe', function (req, res) {
  const rname = req.body.recipe_name;
  const imageurl = req.body.image_url;
+ const cusine = req.body.cuisine;
 
   var mydocument = { recipe_name: rname,image_url: imageurl,author:username,created_on:Date.now() };
   //var newvalues = { $set: {recipe_name: , address: "Canyon 123" } };
