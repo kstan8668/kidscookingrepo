@@ -18,7 +18,8 @@ const dbPassword = 'welcome1';
 // yourDB?authSource=yourDB&w=1
 // const url = `mongodb+srv://${dbUser}:${dbPassword}@cluster0-dm88v.mongodb.net/Calvin?authMechanism=SCRAM-SHA-1`;
 const url = `mongodb+srv://${dbUser}:${dbPassword}@cluster0-dm88v.mongodb.net/${dbName}?retryWrites=true&w=majority`
-
+var gv_cuisines = ['Kids Meal', 'Western', 'Middle-East'];
+var gv_ingredients = ['Flour', 'Salt', 'Sugar', 'Water', 'Oil'];
 // const url = "mongodb+srv://kstan8668@gmail.com:a81332607@cluster0-dm88v.mongodb.net/Calvin?replicaset=Cluster0&authSource=admin&ssl=true"
 // const url = `mongodb+srv://${dbUser}:${dbPassword}@cluster0-dm88v.mongodb.net/Calvin?retryWrites=true&w=majority`;
 
@@ -99,7 +100,7 @@ app.get('/edit_recipe/:id', function (req, res) {
       else {
 
 
-        res.render('pages/edit_recipe', { user: username, smessages: 'Enjoy your Recipe', messages: "", cuisines: resultset.cuisines, ingredients: resultset.ingredients, recipes: resultset });
+        res.render('pages/edit_recipe', { user: username, smessages: 'Enjoy your Recipe', messages: "", cuisines_list: gv_cuisines, cuisines: resultset.cuisines, ingredients: resultset.ingredients, recipes: resultset });
 
       }
     }
@@ -154,8 +155,7 @@ app.get('/recipe/:id', function (req, res) {
 app.get('/addrecipe', function (req, res) {
 
 
-  var gv_cuisines = ['Kids Meal', 'Western', 'Middle-East'];
-  var gv_ingredients = ['Flour', 'Salt', 'Sugar', 'Water', 'Oil'];
+
   res.render('pages/add_recipe', { user: username, messages: '', smessages: '', cuisines: gv_cuisines, recipe: [], allergens: [], ingredients: gv_ingredients })
 
 });
@@ -201,7 +201,7 @@ app.post('/login', function (req, res) {
             }
             else {
 
-              res.render('pages/recipelist', { user: username, smessages: '', messages: "", cuisines: ['test cusines 1', 'test cusines 2'], recipes: resultset2 });
+              res.render('pages/recipelist', { user: username, smessages: '', messages: "", cuisines_list: gv_cuisines,cuisines: resultset2.cuisines, recipes: resultset2 });
             }
           }
           else {
@@ -305,7 +305,7 @@ app.get('/recipelist', function (req, res) {
     }
     else {
 
-      res.render('pages/recipelist', { user: username, smessages: '', messages: "", cuisines: ['test cusines 1', 'test cusines 2'], recipes: resultset2 });
+      res.render('pages/recipelist', { user: username, smessages: '', messages: "", cuisines_list: gv_cuisines,cuisines: ['test cusines 1', 'test cusines 2'], recipes: resultset2 });
     }
 
     
@@ -462,7 +462,7 @@ app.post('/insertrecipe', function (req, res) {
         }
         else {
 
-          res.render('pages/recipelist', { user: username, smessages: 'Recipe Successfully added', messages: "", cuisines: [], recipes: resultset2 });
+          res.render('pages/recipelist', { user: username, smessages: 'Recipe Successfully added', messages: "", cuisines_list: gv_cuisines,cuisines: [], recipes: resultset2 });
         }
 
       }
