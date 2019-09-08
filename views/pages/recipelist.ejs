@@ -64,11 +64,11 @@
                             <div class="input-field col s12" id="cuisine-select">
                                 <select id="cuisine-filter" name="cuisine_select">
                                     <option value="" disabled selected>Cuisine</option>
-                                    <% for ( cuisine in cuisines) { %>
-                                    <option value="{{ cuisine.cuisine_name }}">{{ cuisine.cuisine_name }}</option>
-                                    <% } %>
+                                    <% if (cuisines != undefined) { for (var i=0; i< cuisines.length; i++) { %>
+                                    <option value="<%-cuisine.cuisine_name %>"><%  cuisine.cuisine_name %></option>
+                                    <% } } %>
                                 </select>
-                                <label for="cuisine-filter">Filter by Cuisine</label>
+                                
                             </div>
                         </div>
                         <div class="col s5 m2">
@@ -127,15 +127,13 @@
                                             <a href="#warning" data-target="warning-<%-recipes[i]._id %>" class="waves-effect waves-light btn-small red lighten-2 m-4 modal-trigger"><i class="small material-icons">delete</i></a>
                                             <div id="warning-<%-recipes[i]._id %>" class="modal">
                                                 <div class="modal-content">
-                                                    <h4>Delete Recipe</h4>
-                                                    <p>Are you sure you want to delete this recipe?</p>
+                                                    <h6 style="color: black;">Delete Recipe</h6>
+                                                    <p style="color: brown;">Are you sure you want to delete this recipe?</p>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <a href="#!" class="modal-close waves-effect waves-light btn-small">Back</a>
+                                                <div class="modal-footer" style="height: 100%;">
                                                     <form action='/delete_recipe/<%-recipes[i]._id %>' method='post'>
-                                                        <input class=hidden name='parameter' value=''>
                                                         <button type='submit' name='delete' value='Delete' class="waves-effect waves-light btn-small red lighten-2">Yes, Delete</button>
-                                                     </form>
+                                                        <a href="#!" class="modal-close waves-effect waves-light btn-small">Back</a>                                                     </form>
                                                     
                                                 </div>
                                             </div>

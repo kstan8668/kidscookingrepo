@@ -126,7 +126,11 @@
       object-fit: cover;
     }
     
+.modal-footer {
 
+     height: 0%;
+
+}
     .fab {
         font-size: 1.6rem;
     }

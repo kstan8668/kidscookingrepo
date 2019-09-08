@@ -74,22 +74,23 @@
                     <div class="method">
                         <h5 class="mb-0 center-align orange-text text-lighten-2"><strong>Method</strong></h5>
                         <div class="input-field col s12 mt-0">
-                            <ol id="steps-list" class="mt-10">
+                            <Ul id="steps-list" class="mt-10">
                                 
                                 <% if (recipes.method != undefined) { for( var z=0; z < recipes.method.length ; z++) { %>
                                 <li class="step">
-                                    <input name="step-<%-z %>" type="text" class="validate" value="<%-recipes.method[z].step %>" autocomplete="off" required>
-                                </li>
+                                    <div><%-z %>.
+                                    <input name="step_<%-z %>" type="text" class="validate" value="<%-recipes.method[z].step %>" autocomplete="off" required>
+                                </li></div>
                                 <% } }%>
                                 
-                            </ol>
+                            </ul>
                         </div>
                     </div>
-                    
+               
                     <div class="row">
                         <div class="col s12" id="method-buttons">
                             <div class="col s12 m6 l4">
-                                <a class="waves-effect waves-light btn-floating btn-small add-step-btn" name="add-step-btn"><i class="material-icons left">add</i></a>
+                                <a class="waves-effect waves-light btn-floating btn-small add-step-btn" name="add-step-btn" onClick="addMethod('method')"><i class="material-icons left" >add</i></a>
                                 <label for="add-step-btn">Add Next Step</label>
                             </div>
                             <div class="col s12 m6 l4">
