@@ -131,6 +131,12 @@
      height: 0%;
 
 }
+
+#login-form {
+    background-color: rgba(187, 197, 180, 0.5) !important;
+    padding: 30px;
+}
+
     .fab {
         font-size: 1.6rem;
     }
