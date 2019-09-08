@@ -42,10 +42,10 @@
                     <div class="row">
                         <div class="ingredients" id="ingredients">
                             <h5 class="mb-20 center-align orange-text text-lighten-2"><strong>Ingredients</strong></h5>
-                            <div class="ingredient" id="ingredient">
+                            <div class="ingredient" id="ingredient" name="ingredient[]">
                                 
                                 <div class="input-field col2 s4">
-                                <select class="ingredient-list" name="ingredient-name-1" >
+                                <select class="ingredient-list" name="ingredient_name_1" >
                                     <option value="" disabled selected>Select Ingredient</option>
                                     <% for(var z=0; z < ingredients.length; z++) { %>
                                     <option value="<%= ingredients[z]%>"><%- ingredients[z] %></option>
@@ -53,7 +53,7 @@
                                 </select>
                             </div>
                                 <div class="input-field col2 s4">
-                                    <input id="quantity" name="ingredient-qty-1" type="text" class="validate"
+                                    <input id="quantity" name="ingredient_qty_1" type="text" class="validate"
                                         autocomplete="off" required>
                                     <span class="helper-text">Quantity</span>
                                 </div>
@@ -80,14 +80,14 @@
 
                     <!-- Method section -->
                     <div class="row">
-                        <div class="method" id="method">
+                        <div class="method" id="method" name="method[]">
                             <h5 class="mb-0 center-align orange-text text-lighten-2"><strong>Method</strong></h5>
                             <div class="input-field col s12 mt-0">
                                 <ul id="steps-list" class="mt-10">
                                     
                                     <li class="step">
                                         <div>1.
-                                        <input name="step-1" type="text" class="validate" autocomplete="off" required>
+                                        <input name="step_1" type="text" class="validate" autocomplete="off" required>
                                     </div></li>
                                 </ul>
                             </div>

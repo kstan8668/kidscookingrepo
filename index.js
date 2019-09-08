@@ -386,8 +386,54 @@ app.post('/insertrecipe', function (req, res) {
  const cuisine = req.body.cuisine;
  const ingredients = req.body.ingredients;
  const method = req.body.method;
+  var ingredient_list = [];
+  var method_list = [];
+  if ( req.body.ingredient_name_1 != undefined || req.body.ingredient_qty_1  != undefined )
+  {
+   ingredient_list.push({ name:req.body.ingredient_name_1, quantity:req.body.ingredient_qty_1 });
+  }
 
-  var mydocument = { recipe_name: rname,cuisines:cuisine,ingredients:ingredients,method:method,image_url: imageurl,author:username,created_on:Date.now() };
+  if ( req.body.ingredient_name_2 != undefined || req.body.ingredient_qty_2  != undefined )
+  {
+    ingredient_list.push({ name:req.body.ingredient_name_2, quantity:req.body.ingredient_qty_2 });
+  }
+
+  if ( req.body.ingredient_name_3 != undefined || req.body.ingredient_qty_3  != undefined )
+  {
+    ingredient_list.push({ name:req.body.ingredient_name_3, quantity:req.body.ingredient_qty_3 });
+  }
+
+  if ( req.body.ingredient_name_4 != undefined || req.body.ingredient_qty_4  != undefined )
+  {
+    ingredient_list.push({ name:req.body.ingredient_name_4, quantity:req.body.ingredient_qty_4 });
+  }
+
+  if ( req.body.ingredient_name_5 != undefined || req.body.ingredient_qty_5  != undefined )
+  {
+    ingredient_list.push({ name:req.body.ingredient_name_5, quantity:req.body.ingredient_qty_5 });
+  }
+
+  if ( req.body.step_1 != undefined )
+  {
+   method_list.push({ step:req.body.step_1 });
+  }
+  if ( req.body.step_2 != undefined )
+  {
+   method_list.push({ step:req.body.step_2 });
+  }
+  if ( req.body.step_3 != undefined )
+  {
+   method_list.push({ step:req.body.step_3 });
+  }
+  if ( req.body.step_4 != undefined )
+  {
+   method_list.push({ step:req.body.step_4 });
+  }
+  if ( req.body.step_5 != undefined )
+  {
+   method_list.push({ step:req.body.step_5 });
+  }
+  var mydocument = { recipe_name: rname,cuisines:cuisine,ingredients:ingredient_list,method:method_list,image_url: imageurl,author:username,created_on:Date.now() };
   //var newvalues = { $set: {recipe_name: , address: "Canyon 123" } };
 
   (async () => {

@@ -39,7 +39,6 @@
                     </div>
                 </div>
                 
-                <hr class="mb-40">
                 
                 <!-- Ingredients section -->
                 <div class="row">
@@ -49,7 +48,8 @@
                         <% if (ingredients != undefined) { for ( var i=0; i < ingredients.length|0; i++) { %>
                       
                         <li class="step">
-                            <input name="step-<%-i %>" type="text" class="validate" value="<%-ingredients[i]%>" autocomplete="off" >
+                            <input name="step-<%-i %>" type="text" class="validate" value="<%-ingredients[i].name %>" autocomplete="off" >
+                            <input name="step-<%-i %>" type="text" class="validate" value="<%-ingredients[i].quantity %>" autocomplete="off" >
                         </li>
                         <% } }%>
                     </ol>
@@ -57,7 +57,7 @@
                     <div class="row">
                         <div class="col s12" id="ingredients-buttons">
                             <div class="col s12 m6 l4">
-                                <a class="waves-effect waves-light btn-floating btn-small add-ingredient-btn" name="add-ing-btn"><i class="material-icons left">add</i></a>
+                                <a class="waves-effect waves-light btn-floating btn-small add-ingredient-btn" name="add-ing-btn"  onClick="addInput('ingredient');><i class="material-icons left">add</i></a>
                                 <label for="add-ing-btn">Add Next Ingredient</label>
                             </div>
                             <div class="col s12 m6 l4">
@@ -68,7 +68,6 @@
                     </div>
                 </div>
                 
-                <hr class="mb-40">
                 
                 <!-- Method section -->
                 <div class="row">
@@ -79,7 +78,7 @@
                                 
                                 <% if (recipes.method != undefined) { for( var z=0; z < recipes.method.length ; z++) { %>
                                 <li class="step">
-                                    <input name="step-<%-z %>" type="text" class="validate" value="<%-recipes.method[z] %>" autocomplete="off" required>
+                                    <input name="step-<%-z %>" type="text" class="validate" value="<%-recipes.method[z].step %>" autocomplete="off" required>
                                 </li>
                                 <% } }%>
                                 

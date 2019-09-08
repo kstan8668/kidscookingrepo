@@ -44,7 +44,7 @@ function addInput(divName){
 
           var name = "ingredient-name-"+(counter + 1)
           var newdiv = document.createElement(name);
-          var vhtml = '<br><div class="ingredient" ><div class="input-field col2 s4"> <select class="ingredient-list" name="ingredient-name-'+(counter + 1)+'" > <option value="" disabled selected>Select Ingredient</option> <% if ( ingredients != undefined ) { for(var z=0; z < ingredients.length; z++) { %> <option value="<%= ingredients[z]%>"><%- ingredients[z] %></option> <% } }%> </select> </div> <div class="input-field col2 s4"> <input id="quantity" name="ingredient-qty-'+(counter + 1)+'" type="text" class="validate" autocomplete="off" required> <span class="helper-text">Quantity</span> </div>'
+          var vhtml = '<br><div class="ingredient" ><div class="input-field col2 s4"> <select class="ingredient-list" name="ingredient_name_'+(counter + 1)+'" > <option value="" disabled selected>Select Ingredient</option> <% if ( ingredients != undefined ) { for(var z=0; z < ingredients.length; z++) { %> <option value="<%= ingredients[z]%>"><%- ingredients[z] %></option> <% } }%> </select> </div> <div class="input-field col2 s4"> <input id="quantity" name="ingredient_qty_'+(counter + 1)+'" type="text" class="validate" autocomplete="off" required> <span class="helper-text">Quantity</span> </div>'
           newdiv.innerHTML = vhtml;
         //   newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
           document.getElementById(divName).appendChild(newdiv);
@@ -60,7 +60,7 @@ function addMethod(divName){
 
           var name = "step-"+(counter2 + 1)
           var newdiv = document.createElement(name);
-          var vhtml = '<div class="input-field col2 s12 mt-0"> <ul id="steps-list" class="mt-10"><div> '+(counter2 + 1)+'. <li class="step"> <input name="step-'+(counter2 + 1)+'" type="text" class="validate" autocomplete="off" required> </li> </div> </ul> </div>';
+          var vhtml = '<div class="input-field col2 s12 mt-0"> <ul id="steps-list" class="mt-10"><div> '+(counter2 + 1)+'. <li class="step"> <input name="step_'+(counter2 + 1)+'" type="text" class="validate" autocomplete="off" required> </li> </div> </ul> </div>';
           newdiv.innerHTML = vhtml;
         //   newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
           document.getElementById(divName).appendChild(newdiv);

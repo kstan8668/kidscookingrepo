@@ -26,8 +26,8 @@
                     </div>
                 </header>
             </div>
-            <div class="col s12 l6">
-                <div class="card mt-20">
+            <div class="col s4 l6">
+                <div class="card mt-10">
                     <div class="card-image">
                         <img src="<%= recipes.image_url%>" alt="<% recipes.recipe_name %>">
                     </div>
@@ -41,7 +41,7 @@
                 <ol class="ml-20 striped ingredients-list">
                         <%if (ingredients != undefined) {%>
                     <% for ( var j=0; j < ingredients.length; j++) { %>
-                        <li> <%=ingredients[j] %></li>
+                        <li> <%=ingredients[j].name %> - <%=ingredients[j].quantity %> </li>
                     <%} }%>
                 </ol>
             </div>
@@ -50,7 +50,7 @@
                 <ol>
                     <% if ( recipes.method != undefined )  {%>
                     <% for(var z=0; z < recipes.method.length; z++) {%>
-                        <li><%- recipes.method[z] %></li>
+                        <li><%- recipes.method[z].step %></li>
                     <% } } %>
                 </ol>
             </div>
