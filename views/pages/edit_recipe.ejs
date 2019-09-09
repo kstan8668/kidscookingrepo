@@ -17,7 +17,12 @@
                         <span class="helper-text">Enter Recipe Name</span>
                     </div>
                 </div>
-                
+                <div class="gallery">
+                        <a target="_blank" href="<%-recipes.image_url %>">
+                          <img src="<%-recipes.image_url %>" alt="Forest" width="300" height="200">
+                        </a>
+                        
+                      </div>
                 <!-- Recipe cuisine and image URL section -->
                 <div class="row">
                     <div class="input-field col s12 m6">
@@ -74,16 +79,13 @@
                     <div class="method">
                         <h5 class="mb-0 center-align orange-text text-lighten-2"><strong>Method</strong></h5>
                         <div class="input-field col s12 mt-0">
-                            <Ul id="steps-list" class="mt-10">
-                                
-                                <% if (recipes.method != undefined) { for( var z=0; z < recipes.method.length ; z++) { %>
-                                <li class="step">
-                                    <div><%-z %>.
+                          
+                                <% if (recipes.method != undefined) { for( var z = 0; z < recipes.method.length ; z++) { %>
+                             
+                                 <%-z + 1 %>
                                     <input name="step_<%-z %>" type="text" class="validate" value="<%-recipes.method[z].step %>" autocomplete="off" required>
-                                </li></div>
-                                <% } }%>
-                                
-                            </ul>
+                                   
+                                <% } }%>>
                         </div>
                     </div>
                

@@ -19,7 +19,7 @@ const dbPassword = 'welcome1';
 // const url = `mongodb+srv://${dbUser}:${dbPassword}@cluster0-dm88v.mongodb.net/Calvin?authMechanism=SCRAM-SHA-1`;
 const url = `mongodb+srv://${dbUser}:${dbPassword}@cluster0-dm88v.mongodb.net/${dbName}?retryWrites=true&w=majority`
 var gv_cuisines = ['Kids Meal', 'Western', 'Middle-East'];
-var gv_ingredients = ['Flour', 'Salt', 'Sugar', 'Water', 'Oil'];
+var gv_ingredients = ['Flour', 'Salt', 'Sugar', 'Water', 'Olive Oil','Coconunt Oil','Salmon Fish','Chicken','Meat','Lettue','Tomato'];
 // const url = "mongodb+srv://kstan8668@gmail.com:a81332607@cluster0-dm88v.mongodb.net/Calvin?replicaset=Cluster0&authSource=admin&ssl=true"
 // const url = `mongodb+srv://${dbUser}:${dbPassword}@cluster0-dm88v.mongodb.net/Calvin?retryWrites=true&w=majority`;
 
@@ -55,7 +55,7 @@ console.log("URL:" + url);
 // })();
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '/public')))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(cookieParser());
