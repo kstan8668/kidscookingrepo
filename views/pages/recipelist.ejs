@@ -111,8 +111,8 @@
                             <% for (var i=0; i< recipes.length; i++) { %>
                             <div class="col s12 m6 l6 xl4 recipe-card">
                                 <div class="card">
-                                    <div class="card-image">
-                                        <img src='<%= recipes[i].image_url %>'' alt="<%= recipes[i].recipe_name%>">
+                                    <div class="card-image"> <a href="/recipe/<%- recipes[i]._id %>" >
+                                        <img src='<%= recipes[i].image_url %>'' alt="<%= recipes[i].recipe_name%>"></a>
                                     </div>
                                     <div class="card-content">
                                         <h6 class="brown-text"><%= recipes[i].recipe_name%></h6>
