@@ -57,8 +57,8 @@
         </div>
         <div class="center-align mb-20 mt-40">
             <a href="/recipelist" class="waves-effect waves-light btn-small darken-3">Back</a>
-            <% if (user == recipes.author) { %>
-                <a href="/edit_recipe/<%=recipes._id %>" class="waves-effect waves-light btn-small blue darken-2">Edit</a>
+            <% if( recipes.author != undefined ) { if (recipes.author != null ) { if (user == recipes.author) { %>
+                <a href="/edit_recipe/<%-recipes._id %>" class="waves-effect waves-light btn-small blue darken-2">Edit</a>
                 <a href="#warning" data-target="warning" class="waves-effect waves-light btn-small red darken-2 modal-trigger">Delete</a>
                 <div id="warning" class="modal">
                     <div class="modal-content">
@@ -67,10 +67,10 @@
                     </div>
                     <div class="modal-footer">
                         <a href="#!" class="modal-close waves-effect waves-light btn-small">Back</a>
-                        <a href="/delete_recipe/<%=recipes._id %>" class="waves-effect waves-light btn-small red darken-2">Yes, Delete</a>
+                        <a href="/delete_recipe/<%-recipes._id %>" class="waves-effect waves-light btn-small red darken-2">Yes, Delete</a>
                     </div>
                 </div>
-            <% } %>
+            <% } } } %>
         </div>
     </div>
     </main>
