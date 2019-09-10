@@ -526,6 +526,58 @@ app.post('/insertrecipe', function (req, res) {
 
 });
 
+app.post('/search_recipe', function(req,res){
+  var text = req.body.recipe_search;
+  text = '/'+text+'/';
+  if (text != undefined ){
+
+    if (text != ''){
+
+      var query = { 'recipe_name': {$regex:text}};
+
+      (async () => {
+        let client = await MongoClient.connect(url,
+          { useNewUrlParser: true });
+    
+        let dbo = client.db(dbName);
+        try {
+          /*const res = await db.collection("usermaster").updateOne({ 
+              "someKey": someValue
+          }, { $set: someObj }, { upsert: true });*/
+          const resultset = await dbo.collection("recipesmaster").find(query).toArray();
+          //console.log(`res => ${JSON.stringify(resultset)}`);
+    
+         
+              if (resultset == null) {
+    
+                res.render('pages/edit_recipe', { user: username, messages: 'No Data found', smessages: '' })
+              }
+              else {
+                
+                //res.redirect('/recipelist');
+                //res.render('pages/recipelist', { user: username, smessages: 'Found Output', messages: "", cuisines: ['test cusines 1', 'test cusines 2'], recipes: resultset });
+                res.render('pages/recipelist', { user: username, smessages: 'Found Recipes', messages: "", cuisines_list: gv_cuisines,cuisines: ['test cusines 1', 'test cusines 2'], recipes: resultset });
+
+              }
+            }
+        
+        finally {
+          client.close();
+        }
+      })()
+        .catch(err => console.error(err));
+    
+
+        
+    }
+    else {
+      res.redirect('/recipelist');
+    }
+  }
+  else {
+    res.redirect('/recipelist');
+  }
+});
 app.post('/savechanges/:id', function (req, res) {
   var id = req.params.id;
   var o_id = new mongo.ObjectID(id);

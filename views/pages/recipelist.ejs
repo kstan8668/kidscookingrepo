@@ -11,6 +11,7 @@
                     <% if (user != undefined && user != '') { %>
                         <li> Welcome <%-user%>! </li>
                         <li><a href="/addrecipe">Add Recipe</a></li>
+                        
                         <li><a href="/logout">Logout</a></li>
                     <% } else { %>
                         <li><a href="/signup">Sign Up</a></li>
@@ -46,7 +47,7 @@
     <div class="container col s12 m10 offset-m1 yellow lighten-5 content-container" id="recipe-search">
             <div class="row mb-10">
                 
-                <form>
+                <form action="search_recipe" method="POST">
                     <div class="col s7 m4">
                         <div class="input-field col s12">
                             <i class="material-icons prefix orange-text text-lighten-1">search</i>
@@ -78,14 +79,7 @@
                 
             </div>
             <div class="row mb-10">
-                <div class="col s12 m6 center-align">
-                    <form>
-                        <p class="orange-text text-lighten-4">Sort All Recipes By: </p>
-                        <button class="btn waves-effect waves-light btn-small" type="submit" name="sort" value="votes">Votes</button>
-                        <button class="btn waves-effect waves-light btn-small" type="submit" name="sort" value="asc">A-Z</button>
-                        <button class="btn waves-effect waves-light btn-small" type="submit" name="sort" value="dsc">Z-A</button>
-                    </form>
-                </div>
+ 
                 
                 <div class="col s12 m6 grey-text text-lighten-2 center-align s-mt-20">
                         <a href="/recipelist" class="waves-effect waves-light btn-small ml-20">Reset</a>
