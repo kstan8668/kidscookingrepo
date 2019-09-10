@@ -528,12 +528,12 @@ app.post('/insertrecipe', function (req, res) {
 
 app.post('/search_recipe', function(req,res){
   var text = req.body.recipe_search;
-  text = '/'+text+'/';
+  //text = '/'+text+'/';
   if (text != undefined ){
 
     if (text != ''){
 
-      var query = { 'recipe_name': {$regex:text}};
+      var query = { 'recipe_name': {$regex: /text/ }};
 
       (async () => {
         let client = await MongoClient.connect(url,
