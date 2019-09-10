@@ -60,7 +60,7 @@
                     </div>
                 </form>
                 
-                <form>
+                <form action="search_cuisine" method="POST">
                        <div class="col s7 m4">
                             <div class="input-field col s12" id="cuisine-select">
                                 <select id="cuisine-filter" name="cuisine_select">
@@ -81,7 +81,7 @@
             <div class="row mb-10">
  
                 
-                <div class="col s12 m6 grey-text text-lighten-2 center-align s-mt-20">
+                <div class="col s12 m2 right-align">
                         <a href="/recipelist" class="waves-effect waves-light btn-small ml-20">Reset</a>
                         <p class="mt-30"><strong>
                         <% if (recipes.length == 0) { %>
