@@ -533,7 +533,7 @@ app.post('/search_recipe', function(req,res){
 
     if (text != ''){
 
-      var query = { 'recipe_name':  { $regex : text } };
+      var query = { 'recipe_name':  { $regex : text/i } };
 
       (async () => {
         let client = await MongoClient.connect(url,
@@ -586,7 +586,7 @@ app.post('/search_cuisine', function(req,res){
 
     if (text != ''){
 
-      var query = { 'cuisines':  text };
+      var query = { 'cuisines':  text/i };
 
       (async () => {
         let client = await MongoClient.connect(url,
