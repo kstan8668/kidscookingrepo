@@ -388,6 +388,11 @@ app.post('/insertrecipe', function (req, res) {
  const method = req.body.method;
   var ingredient_list = [];
   var method_list = [];
+  if ( req.body.ingredient_name_0 != undefined || req.body.ingredient_qty_0  != undefined )
+  {
+   ingredient_list.push({ name:req.body.ingredient_name_0, quantity:req.body.ingredient_qty_0 });
+  }
+
   if ( req.body.ingredient_name_1 != undefined || req.body.ingredient_qty_1  != undefined )
   {
    ingredient_list.push({ name:req.body.ingredient_name_1, quantity:req.body.ingredient_qty_1 });
@@ -412,7 +417,33 @@ app.post('/insertrecipe', function (req, res) {
   {
     ingredient_list.push({ name:req.body.ingredient_name_5, quantity:req.body.ingredient_qty_5 });
   }
+  if ( req.body.ingredient_name_6 != undefined || req.body.ingredient_qty_6  != undefined )
+  {
+   ingredient_list.push({ name:req.body.ingredient_name_6, quantity:req.body.ingredient_qty_6 });
+  }
+  if ( req.body.ingredient_name_7 != undefined || req.body.ingredient_qty_7  != undefined )
+  {
+   ingredient_list.push({ name:req.body.ingredient_name_7, quantity:req.body.ingredient_qty_7 });
+  }
+  if ( req.body.ingredient_name_8 != undefined || req.body.ingredient_qty_8  != undefined )
+  {
+   ingredient_list.push({ name:req.body.ingredient_name_8, quantity:req.body.ingredient_qty_8 });
+  }
+  if ( req.body.ingredient_name_9 != undefined || req.body.ingredient_qty_9  != undefined )
+  {
+   ingredient_list.push({ name:req.body.ingredient_name_9, quantity:req.body.ingredient_qty_9 });
+  }
+  if ( req.body.ingredient_name_10 != undefined || req.body.ingredient_qty_10  != undefined )
+  {
+   ingredient_list.push({ name:req.body.ingredient_name_10, quantity:req.body.ingredient_qty_10 });
+  }
 
+
+
+  if ( req.body.step_0 != undefined )
+  {
+   method_list.push({ step:req.body.step_0 });
+  }
   if ( req.body.step_1 != undefined )
   {
    method_list.push({ step:req.body.step_1 });
@@ -432,6 +463,24 @@ app.post('/insertrecipe', function (req, res) {
   if ( req.body.step_5 != undefined )
   {
    method_list.push({ step:req.body.step_5 });
+  }
+  if ( req.body.step_6 != undefined )
+  {
+   method_list.push({ step:req.body.step_6 });
+  }
+  if ( req.body.step_7 != undefined )
+  {
+   method_list.push({ step:req.body.step_7 });
+  }
+
+  if ( req.body.step_8 != undefined )
+  {
+   method_list.push({ step:req.body.step_8 });
+  }
+
+  if ( req.body.step_9 != undefined )
+  {
+   method_list.push({ step:req.body.step_9 });
   }
   var mydocument = { recipe_name: rname,cuisines:cuisine,ingredients:ingredient_list,method:method_list,image_url: imageurl,author:username,created_on:Date.now() };
   //var newvalues = { $set: {recipe_name: , address: "Canyon 123" } };
@@ -483,8 +532,102 @@ app.post('/savechanges/:id', function (req, res) {
   var rname = req.body.recipe_name;
   var imageurl = req.body.image_url;
   var query = { '_id': o_id };
+  var ingredient_list = [];
+  var method_list = [];
+  if ( req.body.ingredient_name_0 != undefined || req.body.ingredient_qty_0  != undefined )
+  {
+   ingredient_list.push({ name:req.body.ingredient_name_0, quantity:req.body.ingredient_qty_0 });
+  }
 
-  var newvalues = { $set: {recipe_name: rname, image_url: imageurl} };
+  if ( req.body.ingredient_name_1 != undefined || req.body.ingredient_qty_1  != undefined )
+  {
+   ingredient_list.push({ name:req.body.ingredient_name_1, quantity:req.body.ingredient_qty_1 });
+  }
+
+  if ( req.body.ingredient_name_2 != undefined || req.body.ingredient_qty_2  != undefined )
+  {
+    ingredient_list.push({ name:req.body.ingredient_name_2, quantity:req.body.ingredient_qty_2 });
+  }
+
+  if ( req.body.ingredient_name_3 != undefined || req.body.ingredient_qty_3  != undefined )
+  {
+    ingredient_list.push({ name:req.body.ingredient_name_3, quantity:req.body.ingredient_qty_3 });
+  }
+
+  if ( req.body.ingredient_name_4 != undefined || req.body.ingredient_qty_4  != undefined )
+  {
+    ingredient_list.push({ name:req.body.ingredient_name_4, quantity:req.body.ingredient_qty_4 });
+  }
+
+  if ( req.body.ingredient_name_5 != undefined || req.body.ingredient_qty_5  != undefined )
+  {
+    ingredient_list.push({ name:req.body.ingredient_name_5, quantity:req.body.ingredient_qty_5 });
+  }
+  if ( req.body.ingredient_name_6 != undefined || req.body.ingredient_qty_6  != undefined )
+  {
+   ingredient_list.push({ name:req.body.ingredient_name_6, quantity:req.body.ingredient_qty_6 });
+  }
+  if ( req.body.ingredient_name_7 != undefined || req.body.ingredient_qty_7  != undefined )
+  {
+   ingredient_list.push({ name:req.body.ingredient_name_7, quantity:req.body.ingredient_qty_7 });
+  }
+  if ( req.body.ingredient_name_8 != undefined || req.body.ingredient_qty_8  != undefined )
+  {
+   ingredient_list.push({ name:req.body.ingredient_name_8, quantity:req.body.ingredient_qty_8 });
+  }
+  if ( req.body.ingredient_name_9 != undefined || req.body.ingredient_qty_9  != undefined )
+  {
+   ingredient_list.push({ name:req.body.ingredient_name_9, quantity:req.body.ingredient_qty_9 });
+  }
+  if ( req.body.ingredient_name_10 != undefined || req.body.ingredient_qty_10  != undefined )
+  {
+   ingredient_list.push({ name:req.body.ingredient_name_10, quantity:req.body.ingredient_qty_10 });
+  }
+
+  if ( req.body.step_0 != undefined )
+  {
+   method_list.push({ step:req.body.step_0 });
+  }
+  if ( req.body.step_1 != undefined )
+  {
+   method_list.push({ step:req.body.step_1 });
+  }
+  if ( req.body.step_2 != undefined )
+  {
+   method_list.push({ step:req.body.step_2 });
+  }
+  if ( req.body.step_3 != undefined )
+  {
+   method_list.push({ step:req.body.step_3 });
+  }
+  if ( req.body.step_4 != undefined )
+  {
+   method_list.push({ step:req.body.step_4 });
+  }
+  if ( req.body.step_5 != undefined )
+  {
+   method_list.push({ step:req.body.step_5 });
+  }
+  if ( req.body.step_6 != undefined )
+  {
+   method_list.push({ step:req.body.step_6 });
+  }
+  if ( req.body.step_7 != undefined )
+  {
+   method_list.push({ step:req.body.step_7 });
+  }
+
+  if ( req.body.step_8 != undefined )
+  {
+   method_list.push({ step:req.body.step_8 });
+  }
+
+  if ( req.body.step_9 != undefined )
+  {
+   method_list.push({ step:req.body.step_9 });
+  }
+
+  var newvalues = { $set: {recipe_name: rname, image_url: imageurl,ingredients:ingredient_list,method:method_list} };
 
   (async () => {
     let client = await MongoClient.connect(url,

@@ -53,8 +53,8 @@
                         <% if (ingredients != undefined) { for ( var i=0; i < ingredients.length|0; i++) { %>
                       
                         <li class="step">
-                            <input name="step-<%-i %>" type="text" class="validate" value="<%-ingredients[i].name %>" autocomplete="off" >
-                            <input name="step-<%-i %>" type="text" class="validate" value="<%-ingredients[i].quantity %>" autocomplete="off" >
+                            <input name="ingredient_name_<%-i %>" type="text" class="validate" value="<%-ingredients[i].name %>" autocomplete="off" >
+                            <input name="ingredient_qty_<%-i %>" type="text" class="validate" value="<%-ingredients[i].quantity %>" autocomplete="off" >
                         </li>
                         <% } }%>
                     </ol>
