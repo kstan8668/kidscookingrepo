@@ -100,7 +100,7 @@ app.get('/edit_recipe/:id', function (req, res) {
       else {
 
 
-        // res.render('pages/edit_recipe', { user: username, smessages: 'Enjoy your Recipe', messages: "", cuisines_list: gv_cuisines, cuisines: resultset.cuisines, ingredients: resultset.ingredients, recipes: resultset });
+        res.render('pages/edit_recipe', { user: username, smessages: 'Enjoy your Recipe', messages: "", cuisines_list: gv_cuisines, cuisines: resultset.cuisines, ingredients: resultset.ingredients, recipes: resultset });
 
       }
     }
