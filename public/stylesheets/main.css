@@ -383,6 +383,11 @@
 	transform: scale(0.3);
 }
 
+.orange-text.text-lighten-4{
+
+    color:black !important;
+}
+
 /* Smoke animation */
 
 @keyframes smokeL {
@@ -440,3 +445,17 @@ div.gallery {
 #smoke2 .s7 { animation: smokeR 5s 7s infinite }
 #smoke2 .s8 { animation: smokeL 5s 8s infinite }
 #smoke2 .s9 { animation: smokeR 5s 9s infinite }
+
+
+.neon {
+    color: rgb(164, 112, 17);
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 40px rgb(204, 119, 8),
+      0 0 80px rgb(204, 119, 8),
+      0 0 90px rgb(204, 119, 8),
+      0 0 100px rgb(204, 119, 8),
+      0 0 150px rgb(204, 119, 8);
+  }

@@ -40,7 +40,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true }).then(client2){
 
 // mongodb+srv://<username>:<password>@cluster0-dm88v.mongodb.net/test?retryWrites=true&w=majority
 // var url = "mongodb+srv://kstan8668@gmail.com:a81332607@cluster0-dm88v.mongodb.net/test?retryWrites=true&w=majority";
-console.log("URL:" + url);
+// console.log("URL:" + url);
 
 //( async () => { 
 /*MongoClient.connect(url,{ useNewUrlParser: true }, function(err, db) {
