@@ -111,6 +111,9 @@ Ascertain that incipiently integrated cuisines become available on the integrate
 Ascertain abstracting a cuisine that recipes have as their cuisine doesn't cause the website to crash.
 Test responsiveness of each page on different screen sizes and ascertain all elements stay readable.
 
+## User Testing on all pages
+User Testing on all pages and proof of pages place in Proof of test slide for reference
+
 # Deployment
 GitHub Pages or Heroku process went through to deploy the project as a hosting platform provided all details of the distinctions between the deployed version and the development version, if any, including:
 environment Different variables (Heroku Config Vars)
